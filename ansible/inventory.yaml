@@ -1,0 +1,17 @@
+---
+linux: #Группа хостов 
+  children:
+    nginx:
+      hosts:
+        vm_1: #Имя машины
+          ansible_host: 51.250.0.85
+        vm_2:
+          ansible_host: 51.250.70.215
+    others: 
+      hosts: #Узлы группы
+        vm_3:
+          ansible_host: 51.250.85.150
+  vars:
+    ansible_user: "bogdanov"
+    connection_protocol: ssh #тип подключения
+    ansible_become: true

@@ -1,0 +1,11 @@
+server {
+    listen 3000 default_server;
+    listen [::]:3000 default_server;
+    location / {
+        proxy_pass http://backend;
+    }   
+}
+
+upstream backend {
+    server 192.168.10.27:80;
+}

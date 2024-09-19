@@ -1,0 +1,12 @@
+---
+# tasks file for nginx_proxy
+- name: Установка nginx 
+  apt: 
+    name: nginx
+    state: present
+
+- name: Правка конфига проксирующего nginx
+  ansible.builtin.template:
+    src: default.j2
+    dest: /etc/nginx/sites-available/default
+  notify: "Nginx Reloader" 
